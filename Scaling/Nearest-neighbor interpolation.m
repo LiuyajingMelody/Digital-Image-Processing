@@ -10,8 +10,8 @@ figure(1);
 
 %Get orginal Image Size
 [OrginaSizeX,OrginalSizeY]=size(image);
-NewSizeX=200;
-NewSizeY=700;
+NewSizeX=300;
+NewSizeY=100;
 
 %Calculate X/Y size of new img
 XRatio=OrginaSizeX/NewSizeX;
@@ -24,7 +24,15 @@ NewImg=zeros(NewSizeX,NewSizeY);
 
 for x=(1:NewSizeX)
     for y=(1:NewSizeY)
-       NewImg(x,y)=image(round(x*XRatio),round(y*YRatio));
+       Cx=round(x*XRatio);
+       Cy=round(y*YRatio);
+       if Cx ==0
+           Cx=1;
+       end
+       if Cy==0
+           Cy=1;
+       end
+       NewImg(x,y)=X(Cx,Cy);
         
         
     end

@@ -41,3 +41,7 @@ end
 figure(2);
 %Show scaled img
 imshow(NewImg);
+
+%%
+figure(3);
+

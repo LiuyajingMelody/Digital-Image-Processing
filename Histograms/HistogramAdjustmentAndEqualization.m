@@ -95,10 +95,10 @@ title("Equalization LUT function plot ");
 
 %%
 figure(6);
-subplot(2,2,1);
+subplot(4,2,1);
 imshow(hist_1);
 title("Orginal Image");
-subplot(2,2,2);
+subplot(4,2,2);
 
 
 [OH,Ov]=imhist(hist_1);
@@ -113,15 +113,38 @@ title("Orginal Hist + Accumulated Hist");
 
 equalizedIm=intlut(hist_1,equalizedHistogramLUT);
 [H,v]=imhist(equalizedIm,256);
-subplot(2,2,3);
+subplot(4,2,3);
 imshow(equalizedIm);
 title("Image after Equlization");
 cummulatedHist=cumsum(H);
 maxCum=max(cummulatedHist);
 maxHist=max(H);
 cummulatedHistScaled=cummulatedHist*maxHist/maxCum;
-subplot(2,2,4);
+subplot(4,2,4);
 hold on;
-plot(v,cummulatedHistScaled);
 plot(v,H);
+plot(v,cummulatedHistScaled);
 title("Hist and Accumulated Hist after Aqualization");
+
+
+imMatLabEqulized=histeq(hist_1,256);
+imMatLabAdaptiveEqualized=adapthisteq(hist_1);
+
+
+[HME,v]=imhist(imMatLabEqulized);
+[HMAE,v]=imhist(imMatLabAdaptiveEqualized);
+
+subplot(4,2,5);
+imshow(imMatLabEqulized);
+subplot(4,2,6);
+plot(v,HME);
+
+subplot(4,2,7);
+imshow(imMatLabAdaptiveEqualized);
+subplot(4,2,8);
+plot(v,HMAE);
+%%
+%Matlab histeq
+
+
+

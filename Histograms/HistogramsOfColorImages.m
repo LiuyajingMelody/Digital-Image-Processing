@@ -7,7 +7,7 @@ x=2;
 y=2;
 z=1;
 subplot(y,x,z);
-lena_RGB=imread('jezioro.jpg');
+lena_RGB=imread('lenaRGB.bmp');
 imshow(lena_RGB);
 
 z=z+1;
@@ -58,4 +58,17 @@ equ_brightnes=histeq(lena_HSV_V);
 
 lena_HSV_Equ=lena_HSV;
 lena_HSV_Equ(:,:,3)=equ_brightnes;
-imshow(lena_HSV_Equ);
+lena_RGB_from_HSV=hsv2rgb(lena_HSV_Equ);
+
+subplot(1,3,1);
+imshow(lena_RGB);
+title("Orginal");
+
+subplot(1,3,2);
+imshow(lena_color_equ);
+title("Every Color equalized");
+
+
+subplot(1,3,3);
+imshow(lena_RGB_from_HSV);
+title("HSV-V equalized");

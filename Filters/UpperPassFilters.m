@@ -53,4 +53,4 @@ title("Lap Scaled");
 subplot(1,4,4);
 imshow(img-uint8(img_lapsed),[]);
 title("Orginal-Lap Edges");
-
+%%

@@ -56,4 +56,3 @@ title("Filterd 10 times");
 subplot(1,3,3);
 imshow(imabsdiff(img_3, img_filtered));
 title("Diff");
-

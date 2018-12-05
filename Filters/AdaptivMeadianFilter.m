@@ -6,55 +6,60 @@ img=imread('plytkaSzumImp.bmp');
 
 img_med_filt=medfilt2(img,[7,7]);
 
-img_adapt=img;
+img_adapt=double(img);
 
 win_size=[1,2,3];
 
-[X,Y]=size(img);
+[Y,X]=size(img);
 
 for x=4:(X-4)
    for y=4:(Y-4)
-      win=1;
+      sizi=1;
       
-      sizi=win_size(win);
-      
-      window1=double((img(x-sizi:x+sizi,y-sizi:y+sizi)));
+      window1=double((img(y-sizi:y+sizi,x-sizi:x+sizi)));
       window=window1(:);
+      
       medi=median(window);
       maxi=max(window);
       mini=min(window);  
-      z=img(x,y);  
+      z=double(img(y,x));  
+      
       A1=medi-mini;
       A2=medi-maxi;
-      
-      while((A1<=0 || A2>=0) && win<3)
-          win=win+1;
-          size=win_size(win);
-          window1=double(img(x-sizi:x+sizi,y-sizi:y+sizi));
+     
+      while(not(A1>0 && A2<0) && sizi<4)
+          
+          window1=double(img(y-sizi:y+sizi,x-sizi:x+sizi));
           window=window1(:);
+          
           medi=median(window);
           maxi=max(window);
           mini=min(window);  
-          z=img(x,y);  
+          
+          z=double(img(y,x));  
 
           A1=medi-mini;
           A2=medi-maxi;
-         
+          sizi=sizi+1;
+          
+          
+      end
+      if(sizi>3)
+          
+          img_adapt(y,x)=medi;
+      
+      else
+        if((A1>0 && A2<0))
+            B1=z-mini;
+            B2=z-maxi;
+            if(B1>0 && B2<0)
+                img_adapt(y,x)=z;
+            else
+                img_adapt(y,x)=medi;
+            end
+        end
       end
       
-      if((A1>0 && A2<0))     
-        B1=z-mini;
-        B2=z-maxi;
-        if(B1>0 && B2<0)
-            img_adapt(x,y)=z;
-        else
-            img_adapt(x,y)=medi;
-        end
-      else
-        img_adapt(x,y)=medi;
-   
-        
-      end
 
         
          
@@ -79,5 +84,5 @@ title("Median 7x7");
 
 
 subplot(1,3,3);
-imshow(uint8(img_adapt),[]);
+imshow(img_adapt,[]);
 title("Adaptive Median");

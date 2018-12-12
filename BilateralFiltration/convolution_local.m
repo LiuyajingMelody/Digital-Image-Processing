@@ -1,12 +1,17 @@
-function [outputArg1,outputArg2] = convolution_local(data_,local_window_)
-Nx=size(data_(2));
-h=1;
+function data_filtered = convolution_local(data,local_window)
+
+s=size(data);
+Nx=s(2);
+h=fspecial('gaussian',local_window,25);
+
+data_filtered=zeros(1,Nx);
+
 for i=1:Nx
     
-    patch=reshape 
-    data_filtered(i)=sum(sum(patch.*h));
+    patch=reshape(data(:,i),local_window);
     
-
+    data_filtered(1,i)=sum(sum(patch .* h));
+    
 
 end
 

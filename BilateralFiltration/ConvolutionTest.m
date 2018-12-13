@@ -14,7 +14,7 @@ title("Orginal");
 
 subplot(1,3,2);
 imshow(uint8(img_filtere));
-title("Filtered");
+title("Classic Spline");
 
 
 %%
@@ -29,4 +29,4 @@ img_filtere=bilateral_filtration(img,[5,5],8);
 
 subplot(1,3,3);
 imshow(uint8(img_filtere));
-title("Bi lateral");
+title("Bilateral Filtration");

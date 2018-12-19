@@ -6,6 +6,7 @@ img=imread('ertka.bmp');
 figure(1);
 subplot(1,3,1);
 imshow(img);
+title('Orginal Img');
 
 str=strel('square',3);
 
@@ -13,15 +14,16 @@ img_erode=imerode(img,str);
 
 subplot(1,3,2);
 imshow(img_erode);
-title('Eroded with Square Img');
+title('Eroded with Square');
 
 
 img_erode_circle=imerode(img,strel('diamond',3));
 
 subplot(1,3,3);
 imshow(img_erode_circle);
-title('Eroded wit diamond Img');
+title('Eroded wit diamond');
 %%
+figure(2);
 subplot(2,2,1);
 imshow(img);
 title("Orginal");

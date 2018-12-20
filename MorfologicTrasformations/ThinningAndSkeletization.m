@@ -35,12 +35,19 @@ title('Thined times=Inf');
 img=imread('kosc.bmp');
 
 figure(2);
-subplot(1,2,1);
+subplot(1,3,1);
 imshow(img);
 title('Orginal');
 
 img_mod=bwmorph(img,'skel',Inf);
 
-subplot(1,2,2)
+img_clean=imclearborder(img_mod);
+
+subplot(1,3,2)
 imshow(img_mod);
 title('Skeletonization Inf time');
+
+
+subplot(1,3,3)
+imshow(img_clean);
+title('Cleared Borders');

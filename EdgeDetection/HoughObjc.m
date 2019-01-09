@@ -1,7 +1,7 @@
 clc;
 close all;
 clear;
-
+%Show use of Hough on prepeard image
 
 figure(1);
 subplot(1,2,1);

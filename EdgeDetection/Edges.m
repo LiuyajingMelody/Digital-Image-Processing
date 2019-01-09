@@ -2,6 +2,8 @@ clc;
 close all;
 clear;
 
+%Separate edgses using diffrent methods
+
 img=imread('dom.png');
 
 img_log=edge(img,'log',0.009);

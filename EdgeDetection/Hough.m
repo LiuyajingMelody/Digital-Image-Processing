@@ -28,13 +28,13 @@ p=R(143);
 
 v_x = 0:0.1:10;
 v_y =(p-v_x*cosd(o))/sind(o);
-
+%%
+%If parts are't separated matlab breaks plotting for some reason
 figure(2);
 imshow(img_z);
 hold on;
-plot(v_x+1,v_y+1)
+plot(v_x+1,v_y+1);
 title('Points with Hough Representation on Top');
-
 
 
 

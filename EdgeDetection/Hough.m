@@ -15,24 +15,27 @@ imshow(img_z);
 title('Orginal');
 subplot(1,2,2);
 [H,T,R] = hough(img_z,'RhoResolution',0.1,'ThetaResolution',0.5);
-imshow(H);
+imshow(H,[]);
 title('Img in Hough space');
 
+%Values found on plot 
+%91 143
 
-%196 165
 
-o=T(196);
-p=R(165);
+o=T(91);
+p=R(143);
 
 
 v_x = 0:0.1:10;
 v_y =(p-v_x*cosd(o))/sind(o);
-%%
+
 figure(2);
 imshow(img_z);
 hold on;
 plot(v_x+1,v_y+1)
+title('Points with Hough Representation on Top');
 
-%%
+
+
 
 

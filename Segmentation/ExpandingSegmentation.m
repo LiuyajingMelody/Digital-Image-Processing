@@ -5,9 +5,9 @@ clear;
 
 knee=double(imread('knee.png'));
 
-%imshow(knee,[]);
-%selected=ginput(1);
-selected=[277,217];
+imshow(knee,[]);
+selected=ginput(1);
+%selected=[277,217];
 
 
 
@@ -31,24 +31,24 @@ treshold=4;
 while(ptr>0)
    
    w_y=stacki(ptr,1);
-   w_x=stacki(ptr,1);
+   w_x=stacki(ptr,2);
    stacki(ptr,:)=[0,0];
-   pre=ptr-1;
+   ptr=ptr-1;
    
    
-   if(Y-win_size>w_y>win_size && win_size<w_x<X-win_size)
+   if(Y-win_size>w_y && w_y>win_size && win_size<w_x && w_x<X-win_size)
        center=knee(w_y,w_x);
-       
        for y=(w_y-win_size):(w_y+win_size)
           for x=(w_x-win_size):(w_x+win_size)
-    
-            if(visited(w_y,w_x)==0)
-                current=knee(w_y,w_x);
+            if(visited(y,x)==0)
+                current=knee(y,x);
                 if(abs(center-current)<=treshold)
-                    
-                
+                    ptr=ptr+1;
+                    stacki(ptr,:)=[y,x];
+                    segmented(y,x)=1;
                 
                 end
+                visited(y,x)=1;
             end
     
           end
@@ -57,11 +57,7 @@ while(ptr>0)
        
        
    end
-    
-    
-    
-    
-    
-    
-    
+ 
 end
+
+imshow(segmented,[]);

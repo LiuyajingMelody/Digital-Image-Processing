@@ -8,7 +8,7 @@ clear;
 img=imread('lab112.png');
 img_og=imread('lab112.png');
 
-img=im2bw(img,40/256);
+img=im2bw(img,50/256);
 
 figure;
 imshow(img);
@@ -17,7 +17,7 @@ imshow(img);
 img(:,500:640)=1;
 
 figure;
-imshow(img);
+imshow(img)
 
 
 
@@ -26,17 +26,17 @@ img=edge(img,'canny',0.8);
 figure;
 imshow(img);
 
-
-%img=bwskel(img);
-%figure;
-%imshow(img);
+se = strel('line',3,0)
+img=imdilate(img,se);
+figure;
+imshow(img);
 
 
 %--------------------------Houg-----------------------------------
 [H,T,R] = hough(img);
 peaks = houghpeaks(H,10);
 
-lines = houghlines(img,T,R,peaks,'FillGap',80,'MinLength',120);
+lines = houghlines(img,T,R,peaks,'FillGap',50,'MinLength',120);
 
 figure;
 imshow(img_og);

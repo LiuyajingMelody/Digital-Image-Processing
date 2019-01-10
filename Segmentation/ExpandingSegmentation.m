@@ -6,7 +6,10 @@ clear;
 knee=double(imread('knee.png'));
 
 imshow(knee,[]);
-selected=ginput(1);
+title('Select segementation start point');
+selected=floor(ginput(1));
+selected=[selected(2),selected(1)];
+
 %selected=[277,217];
 
 
@@ -40,6 +43,7 @@ while(ptr>0)
        center=knee(w_y,w_x);
        for y=(w_y-win_size):(w_y+win_size)
           for x=(w_x-win_size):(w_x+win_size)
+              
             if(visited(y,x)==0)
                 current=knee(y,x);
                 if(abs(center-current)<=treshold)
@@ -60,4 +64,11 @@ while(ptr>0)
  
 end
 
+figure;
+subplot(1,2,1);
+imshow(knee,[]);
+title('Orginal');
+
+subplot(1,2,2);
 imshow(segmented,[]);
+title('Segemnted from selected point');

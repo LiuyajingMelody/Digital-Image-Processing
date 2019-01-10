@@ -28,7 +28,7 @@ segmented(selected(1),selected(2))=1;
 stacki(ptr,:)=[selected(1),selected(2)];
 
 win_size=1;
-treshold=30;
+treshold=50;
 
 pixel_count=1;
 current_sum=knee(selected(1),selected(2));
@@ -73,6 +73,11 @@ subplot(1,2,1);
 imshow(knee,[]);
 title('Orginal');
 
+mask=fspecial('gaussian',5);
+filtered=imfilter(segmented,mask);
+
+filtered=imerode(filtered,mask);
+
 subplot(1,2,2);
-imshow(segmented,[]);
+imshow(filtered,[]);
 title('Segemnted from selected point');

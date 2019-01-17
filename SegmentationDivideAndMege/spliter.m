@@ -1,79 +1,35 @@
-function [outputArg1,outputArg2] = spliter(I,TH,BH,LV,RV)
+function spliter(I,y1,y2,x1,x2)
     global maxStd;
     global minSegSize;
     global Seg;
     global index;
     global mRes;
-    
-    area=zeros((BH-TH)*(RV-LV));
-    i=1;
-    
-    for y=TH:BH
-       for x=LV:RV 
-            area(i)=I(y,x);
-            i=i+1;
-       end
-    end
+  
+    area=I(y1:y2,x1:x2);
 
-    m=mean(area);
-    s=std(are);
+    m=mean(area(:));
+    s=std(area(:));
     
-    if size(area)>minSegSize*minSegSize && s>maxStd
-        MV=(LV+RV)/2;
-        MH=(TH+BH)/2;
+    [sy,sx]=size(area);
+    
+    if sy>minSegSize && sx>minSegSize && s>=maxStd
+        
+        mx=floor((x1+x2)/2);
+        my=floor((y1+y2)/2);
 
-        spliter(I,TH,MH,LV,MV);
-        spliter(I,TH,MH,MV,RV);
+        spliter(I,y1,my,x1,mx);
+        spliter(I,y1,my,mx,x2);
 
-        spliter(I,MH,BH,LV,MV);
-        spliter(I,MH,BH,MV,RV);     
+        spliter(I,my,y2,x1,mx);
+        spliter(I,my,y2,mx,x2);     
 
     else
-        for y=TH:BH
-         for x=LV:RV 
-            Seg(y,x)=index;
-         end
-        end
-        mRes(index)=m;
+        
+        Seg(y1:y2,x1:x2)=index;
+        mRes(y1:y2,x1:x2)=m;        
         index=index+1;
                 
     end
-    [Y,X]=size(I);
-    
-    i=1;
-    while i<=index
-        cutted=zeros(Y,X);
-        for y=1:Y
-           for x=1:X 
-                if Seg(y,x)==i
-                   cutted(y,x)=1; 
-                end
-           end   
-        end
-     if sum(sum(cutted)) >0   
-        [yF xF]=find(cutted,1,'first');
-        mask=strel('square',3);
-        cutted_dilate=imdilate(cutted,mask);
-        dif=cutted_dilate-cutted;
-        cut_out=Seg.*dif;
-        nz=nonzeros(cut_out);
-        uniq=unique(nz);
-        l=size(uniq);
-       
-        for z-1:l
-            for y=1:Y
-                for x=1:X 
-                    if Seg(y,x)==z
-                    neigb(y,x)=1; 
-                    end
-                end
-            end   
-        
-        
-            
-        end
-            
-     end
-    i=i+1;
+   
 end
 

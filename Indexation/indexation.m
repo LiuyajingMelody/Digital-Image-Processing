@@ -22,7 +22,7 @@ for y=2:Y-1
          else
              nz=nonzeros(neigbhours);
              mini=min(nz);
-             maxi=min(nz);
+             maxi=max(nz);
              
              if mini==maxi
                 img_c(y,x)=mini; 

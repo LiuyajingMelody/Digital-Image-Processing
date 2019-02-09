@@ -1,7 +1,7 @@
-# Digital-Image-Processing
+# Digital-Image-Processinga
 
-This repository contains my work for Digital-Image-Processing course at AHG UST.
-We had a task to get to know the more popular algorithms used in image processing as also implementing some of them.
+This repository contains work created during Digital-Image-Processing course at AHG UST.
+Our taks was to get to know the more popular algorithms used in image processing as also implementing some of them.
 
 ## Overview
 

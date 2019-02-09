@@ -43,13 +43,16 @@ We had a task to get to know with some of the more popular alhoitms as also impl
   - ![Reconstruction](https://github.com/mblasiak/Digital-Image-Processing/blob/master/MorfologicTrasformations/MorfologicReconstructions.m)
   - ![ThinningAndSkeletization.m](https://github.com/mblasiak/Digital-Image-Processing/blob/master/MorfologicTrasformations/ThinningAndSkeletization.m)
   - ![Real Life Scenerio](https://github.com/mblasiak/Digital-Image-Processing/blob/master/MorfologicTrasformations/UseOfMorfologic.m)
-  - ![]()
-  - ![]()
-  - ![]()
-  - ![]()
-  - ![]()
-  - ![]()
-  
-  
-  
-###
+#### Morfologic Transformations
+  - ![Divide And Merge Segmentation](https://github.com/mblasiak/Digital-Image-Processing/blob/master/SegmentationDivideAndMege/DivideAndMerge.m)
+  - ![Expanding Segmentation](https://github.com/mblasiak/Digital-Image-Processing/blob/master/Segmentation/ExpandingSegmentation.m)
+#### Indexation
+  - ![Simple Indexation](https://github.com/mblasiak/Digital-Image-Processing/blob/master/Indexation/indexation.m)
+  - ![Indexation With Conflict Solving](https://github.com/mblasiak/Digital-Image-Processing/blob/master/Indexation/IndexationWithConflictSolving.m)
+  - ![Indexation On real Image](https://github.com/mblasiak/Digital-Image-Processing/blob/master/Indexation/ShapesIndex.m)
+  - ![Matlab Indexation](https://github.com/mblasiak/Digital-Image-Processing/blob/master/Indexation/MatlabIndexation.m)
+  #### HoughSpace
+  - ![Varoious Operations Using Hough Space Including Edgde Detection]()
+    #### Fourier Transform On Images [UNFINISHED]
+  - ![Filtrations Using FFT](https://github.com/mblasiak/Digital-Image-Processing/tree/master/FouierTranform)
+

@@ -1,7 +1,7 @@
 # Digital-Image-Processing
 
-This repository conteins my work for Digital-Image-Processing course at AHG UST.
-We had a task to get to know with some of the more popular alhoitms as also implementing some of them.
+This repository contains my work for Digital-Image-Processing course at AHG UST.
+We had a task to get to know the more popular algorithms used in image processing as also implementing some of them.
 
 ## Overview
 
@@ -53,6 +53,6 @@ We had a task to get to know with some of the more popular alhoitms as also impl
   - ![Matlab Indexation](https://github.com/mblasiak/Digital-Image-Processing/blob/master/Indexation/MatlabIndexation.m)
   #### HoughSpace
   - ![Varoious Operations Using Hough Space Including Edgde Detection]()
-    #### Fourier Transform On Images [UNFINISHED]
+  #### Fourier Transform On Images [UNFINISHED]
   - ![Filtrations Using FFT](https://github.com/mblasiak/Digital-Image-Processing/tree/master/FouierTranform)
 
